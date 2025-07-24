@@ -1,0 +1,79 @@
+{
+  "api_examples": {
+    "create_file_transfer_log": {
+      "method": "POST",
+      "url": "http://localhost:8080/api/file-transfer-logs",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "direction": "UPLOAD",
+        "sourcePath": "/path/to/source/file.txt",
+        "sourceFileName": "file.txt",
+        "destinationPath": "/path/to/destination/",
+        "siteNo": "SITE001",
+        "countryCode": "US",
+        "jobId": "JOB123",
+        "messageId": "MSG456",
+        "processPrefix": "PROC",
+        "processStatus": "INITIATED",
+        "processControl": "CONTROL001"
+      }
+    },
+    "get_all_logs": {
+      "method": "GET",
+      "url": "http://localhost:8080/api/file-transfer-logs"
+    },
+    "get_log_by_id": {
+      "method": "GET",
+      "url": "http://localhost:8080/api/file-transfer-logs/1"
+    },
+    "get_logs_by_status": {
+      "method": "GET",
+      "url": "http://localhost:8080/api/file-transfer-logs/status/PENDING"
+    },
+    "get_logs_by_job_id": {
+      "method": "GET",
+      "url": "http://localhost:8080/api/file-transfer-logs/job/JOB123"
+    },
+    "get_log_by_checksum": {
+      "method": "GET",
+      "url": "http://localhost:8080/api/file-transfer-logs/checksum/abc123checksum"
+    },
+    "update_log": {
+      "method": "PUT",
+      "url": "http://localhost:8080/api/file-transfer-logs/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "direction": "UPLOAD",
+        "sourcePath": "/updated/path/to/file.txt",
+        "sourceFileName": "updated_file.txt",
+        "destinationPath": "/updated/destination/",
+        "status": "COMPLETED",
+        "siteNo": "SITE001",
+        "countryCode": "US",
+        "jobId": "JOB123",
+        "messageId": "MSG456",
+        "processPrefix": "PROC",
+        "processStatus": "COMPLETED",
+        "processControl": "CONTROL001"
+      }
+    },
+    "delete_log": {
+      "method": "DELETE",
+      "url": "http://localhost:8080/api/file-transfer-logs/1"
+    },
+    "health_check": {
+      "method": "GET",
+      "url": "http://localhost:8080/api/file-transfer-logs/health"
+    }
+  },
+  "curl_examples": {
+    "create_log": "curl -X POST http://localhost:8080/api/file-transfer-logs -H 'Content-Type: application/json' -d '{\"direction\":\"UPLOAD\",\"sourcePath\":\"/path/to/file.txt\",\"sourceFileName\":\"file.txt\",\"destinationPath\":\"/destination/\",\"siteNo\":\"SITE001\",\"countryCode\":\"US\",\"jobId\":\"JOB123\"}'",
+    "get_all": "curl -X GET http://localhost:8080/api/file-transfer-logs",
+    "get_by_id": "curl -X GET http://localhost:8080/api/file-transfer-logs/1",
+    "get_by_status": "curl -X GET http://localhost:8080/api/file-transfer-logs/status/PENDING"
+  }
+}
